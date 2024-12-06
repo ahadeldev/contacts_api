@@ -1,0 +1,382 @@
+{
+	"info": {
+		"_postman_id": "15b02fab-86e5-497f-a156-764aeeb4e766",
+		"name": "Contacts API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Auth Service",
+			"item": [
+				{
+					"name": "Register User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Yousef Adel\",\r\n    \"email\": \"jo@gmail.com\",\r\n    \"username\": \"jo123\",\r\n    \"password\": \"123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOSTNAME}}:{{PORT}}{{AUTHPATH}}/register",
+							"host": [
+								"{{HOSTNAME}}"
+							],
+							"port": "{{PORT}}{{AUTHPATH}}",
+							"path": [
+								"register"
+							],
+							"query": [
+								{
+									"key": "HOSTNAME",
+									"value": "http://localhost",
+									"disabled": true
+								},
+								{
+									"key": "PORT",
+									"value": "8000",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"jo123\",\r\n    \"password\": \"123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOSTNAME}}:{{PORT}}{{AUTHPATH}}/login",
+							"host": [
+								"{{HOSTNAME}}"
+							],
+							"port": "{{PORT}}{{AUTHPATH}}",
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "User Profile",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjJiMTc4N2Y1LWM5ZGUtNDlhMC05M2I5LTBlYTdiYWE0NTlhYyIsInVzZXJuYW1lIjoiam8xMjMiLCJpYXQiOjE3MzM1MjQyOTYsImV4cCI6MTczMzUyNzg5Nn0.7_WJ-uJYZTJEFRsudM0k95Ye4Rea3Q6tGj6eeenHU7U",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{HOSTNAME}}:{{PORT}}{{AUTHPATH}}/profile",
+							"host": [
+								"{{HOSTNAME}}"
+							],
+							"port": "{{PORT}}{{AUTHPATH}}",
+							"path": [
+								"profile"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Logout User",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImJkOTUyYTFjLWJiY2UtNDU0Ny05ZjE1LWQzNDc2N2Q5ZjBjOSIsInVzZXJuYW1lIjoiYWgxMjMiLCJpYXQiOjE3MzM0MzQ3ODcsImV4cCI6MTczMzQzODM4N30.glhntcHkyDRjJGAGw4y3ofpMVfRdv5LnxWR6UdsCVlw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{HOSTNAME}}:{{PORT}}{{AUTHPATH}}/profile",
+							"host": [
+								"{{HOSTNAME}}"
+							],
+							"port": "{{PORT}}{{AUTHPATH}}",
+							"path": [
+								"profile"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Profile",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjIxMWM1ODBhLTQ4ZTEtNDM4YS05NDVlLTMwOTUyNGJkMzllYiIsInVzZXJuYW1lIjoiYWgxMjMiLCJpYXQiOjE3MzMzNjEzMjEsImV4cCI6MTczMzM2NDkyMX0.L00BRzpdSOCIZ4V70fLvnlnqoYqRwnTKec4QrLX6MN4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"newName\": \"AHMED ADEL MAHMOUD\",\r\n    \"newEmail\": \"ahadel943@gmail.com\",\r\n    \"newPassword\": \"123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOSTNAME}}:{{PORT}}{{AUTHPATH}}/profile",
+							"host": [
+								"{{HOSTNAME}}"
+							],
+							"port": "{{PORT}}{{AUTHPATH}}",
+							"path": [
+								"profile"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Profile",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjIxMWM1ODBhLTQ4ZTEtNDM4YS05NDVlLTMwOTUyNGJkMzllYiIsInVzZXJuYW1lIjoiYWgxMjMiLCJpYXQiOjE3MzMzNjEzODAsImV4cCI6MTczMzM2NDk4MH0.I4EII3tSA2-tfncX8BkX9NDpRL8H-QKjdETzMzU61vI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{HOSTNAME}}:{{PORT}}{{AUTHPATH}}/profile",
+							"host": [
+								"{{HOSTNAME}}"
+							],
+							"port": "{{PORT}}{{AUTHPATH}}",
+							"path": [
+								"profile"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Contacts Service",
+			"item": [
+				{
+					"name": "Create Contact",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImJkOTUyYTFjLWJiY2UtNDU0Ny05ZjE1LWQzNDc2N2Q5ZjBjOSIsInVzZXJuYW1lIjoiYWgxMjMiLCJpYXQiOjE3MzM1MjM1MzQsImV4cCI6MTczMzUyNzEzNH0.n9UY5bVfs4-vx1NnDAMgIOGv3qhFJolqKjvMBb9XvlU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"first_name\": \"Mohammed\",\r\n    \"last_name\": \" Badr\",\r\n    \"phone_number\": \"01113655505\",\r\n    \"address\": \"7777 Main St.\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOSTNAME}}:{{PORT}}{{CONTACTSPATH}}/create",
+							"host": [
+								"{{HOSTNAME}}"
+							],
+							"port": "{{PORT}}{{CONTACTSPATH}}",
+							"path": [
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Contact By ID",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImJkOTUyYTFjLWJiY2UtNDU0Ny05ZjE1LWQzNDc2N2Q5ZjBjOSIsInVzZXJuYW1lIjoiYWgxMjMiLCJpYXQiOjE3MzM1MjM1MzQsImV4cCI6MTczMzUyNzEzNH0.n9UY5bVfs4-vx1NnDAMgIOGv3qhFJolqKjvMBb9XvlU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{HOSTNAME}}:{{PORT}}{{CONTACTSPATH}}/1973ba33-912c-4c36-8158-597d8e408131",
+							"host": [
+								"{{HOSTNAME}}"
+							],
+							"port": "{{PORT}}{{CONTACTSPATH}}",
+							"path": [
+								"1973ba33-912c-4c36-8158-597d8e408131"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Contacts",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjJiMTc4N2Y1LWM5ZGUtNDlhMC05M2I5LTBlYTdiYWE0NTlhYyIsInVzZXJuYW1lIjoiam8xMjMiLCJpYXQiOjE3MzM1MjQyOTYsImV4cCI6MTczMzUyNzg5Nn0.7_WJ-uJYZTJEFRsudM0k95Ye4Rea3Q6tGj6eeenHU7U",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{HOSTNAME}}:{{PORT}}{{CONTACTSPATH}}/all",
+							"host": [
+								"{{HOSTNAME}}"
+							],
+							"port": "{{PORT}}{{CONTACTSPATH}}",
+							"path": [
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Contact By ID",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImJkOTUyYTFjLWJiY2UtNDU0Ny05ZjE1LWQzNDc2N2Q5ZjBjOSIsInVzZXJuYW1lIjoiYWgxMjMiLCJpYXQiOjE3MzM1MjM1MzQsImV4cCI6MTczMzUyNzEzNH0.n9UY5bVfs4-vx1NnDAMgIOGv3qhFJolqKjvMBb9XvlU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"newFirstName\": \"mohamed\",\r\n    \"newLastName\": \"bedo\",\r\n    \"newPhoneNumber\": \"01015008518\",\r\n    \"newEmail\": \"m35711112@domain.com\",\r\n    \"newAddress\": \"555555 Sec ST...\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOSTNAME}}:{{PORT}}{{CONTACTSPATH}}/a2e35efb-32f9-4d20-870a-be67956cc717",
+							"host": [
+								"{{HOSTNAME}}"
+							],
+							"port": "{{PORT}}{{CONTACTSPATH}}",
+							"path": [
+								"a2e35efb-32f9-4d20-870a-be67956cc717"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Contact By ID",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjJiMTc4N2Y1LWM5ZGUtNDlhMC05M2I5LTBlYTdiYWE0NTlhYyIsInVzZXJuYW1lIjoiam8xMjMiLCJpYXQiOjE3MzM1MjQyOTYsImV4cCI6MTczMzUyNzg5Nn0.7_WJ-uJYZTJEFRsudM0k95Ye4Rea3Q6tGj6eeenHU7U",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{HOSTNAME}}:{{PORT}}{{CONTACTSPATH}}/1973ba33-912c-4c36-8158-597d8e408131",
+							"host": [
+								"{{HOSTNAME}}"
+							],
+							"port": "{{PORT}}{{CONTACTSPATH}}",
+							"path": [
+								"1973ba33-912c-4c36-8158-597d8e408131"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "HOSTNAME",
+			"value": "http://localhost"
+		},
+		{
+			"key": "PORT",
+			"value": "8000"
+		},
+		{
+			"key": "AUTHPATH",
+			"value": "/api/v1/auth"
+		},
+		{
+			"key": "CONTACTSPATH",
+			"value": "/api/v1/contacts"
+		}
+	]
+}
