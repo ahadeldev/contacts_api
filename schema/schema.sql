@@ -2,7 +2,10 @@
 CREATE EXTENSION IF NOT EXISTS pgcrypto;
 
 -- check if the extension installed
-SELECT * FROM pg_extension WHER extname = 'pgcrypto';
+SELECT * FROM pg_extension WHERE extname = 'pgcrypto';
+
+-- create database
+CREATE DATABASE contacts_api;
 
 -- create the users table
 CREATE TABLE users (
